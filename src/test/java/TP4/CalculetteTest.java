@@ -1,19 +1,17 @@
 package TP4;
 
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import junit.framework.TestCase;
 
-public class CalculetteTest {
+public class CalculetteTest extends TestCase {
 
     private Calculette calculette;
 
-    @BeforeEach
-    public void setUp() {
+    // Méthode setup
+    protected void setUp() {
         calculette = new Calculette();
     }
 
-    @Test
+    // Test de l'addition
     public void testAddition() {
         calculette.empiler(2.0);
         calculette.empiler(3.0);
@@ -21,7 +19,7 @@ public class CalculetteTest {
         assertEquals(5.0, calculette.getResultat());
     }
 
-    @Test
+    // Test de la soustraction
     public void testSoustraction() {
         calculette.empiler(5.0);
         calculette.empiler(2.0);
@@ -29,7 +27,7 @@ public class CalculetteTest {
         assertEquals(3.0, calculette.getResultat());
     }
 
-    @Test
+    // Test de la multiplication
     public void testMultiplication() {
         calculette.empiler(2.0);
         calculette.empiler(3.0);
@@ -37,7 +35,7 @@ public class CalculetteTest {
         assertEquals(6.0, calculette.getResultat());
     }
 
-    @Test
+    // Test de la division
     public void testDivision() {
         calculette.empiler(6.0);
         calculette.empiler(3.0);
@@ -45,16 +43,21 @@ public class CalculetteTest {
         assertEquals(2.0, calculette.getResultat());
     }
 
-    @Test
+    // Test de la division par zéro
     public void testDivisionParZero() {
         calculette.empiler(6.0);
         calculette.empiler(0.0);
-        assertThrows(ArithmeticException.class, () -> calculette.division());
+        try {
+            calculette.division();
+            fail("Devrait lancer une ArithmeticException");
+        } catch (ArithmeticException e) {
+            // Attendu, test réussi
+        }
     }
 
-    @Test
+    // Test du calcul RPN
     public void testCalculRPN() {
         double resultat = calculette.calculerRPN("1.0 3 + 2 3.2 / +");
-        assertEquals(5.625, resultat);
+        assertEquals(5.625, resultat, 0.001);
     }
 }
