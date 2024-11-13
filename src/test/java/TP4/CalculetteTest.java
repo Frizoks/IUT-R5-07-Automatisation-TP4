@@ -57,7 +57,7 @@ public class CalculetteTest extends TestCase {
 
     // Test du calcul RPN
     public void testCalculRPN() {
-        double resultat = calculette.calculerRPN("1.0 4 + 2 3.2 / +");
-        assertEquals(5.625, resultat, 0.001);
+        double resultat = calculette.calculerRPN("1.0 3 + 2 3.2 / +");
+        assertEquals(4.625, resultat, 0.001);
     }
 }
