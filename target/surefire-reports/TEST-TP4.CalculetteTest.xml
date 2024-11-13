@@ -57,9 +57,9 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="java.vendor.version" value="Temurin-17.0.13+11"/>
   </properties>
-  <testcase classname="TP4.CalculetteTest" name="testDivision" time="0.002"/>
+  <testcase classname="TP4.CalculetteTest" name="testDivision" time="0.003"/>
   <testcase classname="TP4.CalculetteTest" name="testDivisionParZero" time="0"/>
-  <testcase classname="TP4.CalculetteTest" name="testCalculRPN" time="0.001"/>
+  <testcase classname="TP4.CalculetteTest" name="testCalculRPN" time="0"/>
   <testcase classname="TP4.CalculetteTest" name="testAddition" time="0"/>
   <testcase classname="TP4.CalculetteTest" name="testSoustraction" time="0"/>
   <testcase classname="TP4.CalculetteTest" name="testMultiplication" time="0"/>
